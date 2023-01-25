@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 452.89992 381.40001"
+   width="452.89993"
+   height="381.39999"
+   version="1.1"
+   id="VoronLogo"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <style>
+  .ani {
+        animation: bgColor 120s infinite linear;
+            fill-rule:evenodd;
+            clip-rule:evenodd;
+            fill:#ff000000;
+        }
+        @keyframes bgColor {
+          12.5% {
+            fill: #ff0000;
+          }
+          25% {
+            fill: #FFA500;
+          }
+          37.5% {
+            fill: #FFFF00;
+          }
+          50% {
+            fill: #7FFF00;
+          }
+          62.5% {
+            fill: #00FFFF;
+          }
+          75% {
+            fill: #0000FF;
+          }
+          87.5% {
+            fill: #9932CC;
+          }
+          100% {
+            fill: #FF0000;
+          }
+        }
+  </style>
+  <g
+     transform="translate(-51.938398,-38.504699)">
+    <path
+       d="M 281.73838,38.5047 150.33842,229.00473 H 51.938395 L 183.93839,38.704743 Z"
+       class="ani"/>
+    <path
+       d="M 458.83836,38.5047 193.73838,419.90469 H 96.738383 L 360.73838,38.604706 Z"
+       class="ani"/>
+    <path
+       d="m 405.83836,227.60471 h 99 L 370.93833,419.90469 h -98.09997 z"
+       class="ani" />
+  </g>
+</svg>

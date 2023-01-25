@@ -1,0 +1,22 @@
+// app global css in SCSS form
+.q-list--dark,
+.q-item--dark {
+  color: #ccc;
+}
+
+.q-toggle--dark .q-toggle__inner .q-toggle__thumb:after {
+  background: $grey-9;
+}
+
+.q-toggle--dark .q-toggle__inner--truthy .q-toggle__thumb:after {
+  background: #fff;
+}
+a:not(.q-item, .q-btn) {
+  color: $blue-6;
+}
+a:not(.q-item, .q-btn):visited {
+  color: $blue-9;
+}
+a:not(.q-item, .q-btn):hover {
+  text-decoration: underline;
+}
