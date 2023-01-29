@@ -150,7 +150,9 @@
             :label="
               frmOrdering.endsWith('submitted_at')
                 ? 'Date submitted'
-                : 'Last updated'
+                : frmOrdering.endsWith('updated_at')
+                ? 'Last updated'
+                : 'Serial #'
             "
           >
             <q-list>
@@ -176,6 +178,7 @@
                   ></q-icon>
                 </q-item-section>
               </q-item>
+
               <q-item
                 clickable
                 v-close-popup
@@ -190,6 +193,29 @@
                 <q-item-section avatar>
                   <q-icon
                     v-if="frmOrdering.endsWith('updated_at')"
+                    :name="
+                      frmOrdering[0] == '-' ? 'arrow_downward' : 'arrow_upward'
+                    "
+                  ></q-icon>
+                </q-item-section>
+              </q-item>
+
+              <q-item
+                clickable
+                v-close-popup
+                @click="
+                  frmOrdering =
+                    frmOrdering == '-serial_number'
+                      ? 'serial_number'
+                      : '-serial_number'
+                "
+              >
+                <q-item-section>
+                  <q-item-label>Serial #</q-item-label>
+                </q-item-section>
+                <q-item-section avatar>
+                  <q-icon
+                    v-if="frmOrdering.endsWith('serial_number')"
                     :name="
                       frmOrdering[0] == '-' ? 'arrow_downward' : 'arrow_upward'
                     "
