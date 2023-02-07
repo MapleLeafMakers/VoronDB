@@ -57,7 +57,7 @@
               <q-tab-panel name="backup">
                 <pre
                   class="text-white"
-                >tar -cz --sort=name --exclude='printer-????????_??????.cfg'
+                >tar -cz --sort=name --exclude='printer-????????_??????.cfg' \
     -C <span class="variable">/home/pi/printer_data/config/</span> . | \
 curl --data-binary @- \
     -H 'Authorization: Token {{ auth_token }}' \
