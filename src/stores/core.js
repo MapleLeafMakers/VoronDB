@@ -23,6 +23,7 @@ export const useCoreStore = defineStore("core", {
     logo1: null,
     logo2: null,
     logo3: null,
+    newPrinterPreset: null,
     shownFilters: [],
     allFilters: [
       {
@@ -70,6 +71,18 @@ export const useCoreStore = defineStore("core", {
     },
     async fetchPrinter(id) {
       return (await this.$api.get(`/api/printer/${id}/`)).data;
+    },
+
+    getModelForSerialPrefix(prefix) {
+      for (const fam of this.families.values()) {
+        if (fam.short_name == prefix.toUpperCase()) {
+          for (const model of this.models.values()) {
+            if (model.family_id === fam.id) {
+              return model;
+            }
+          }
+        }
+      }
     },
 
     newSearch() {

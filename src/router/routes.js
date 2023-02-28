@@ -44,15 +44,24 @@ const routes = [
         component: () => import("pages/AddFilamentPage.vue"),
       },
       {
+        name: "new",
         path: "new",
         component: () => import("pages/NewPrinter.vue"),
-        async beforeEnter(to, from, next) {
+        async beforeEnter(to, from) {
           const coreStore = useCoreStore();
           const user = await loggedInUser(coreStore);
+          let printer = {};
           if (user) {
-            next();
+            if (to.query.reddit) {
+              coreStore.newPrinterPreset = (
+                await coreStore.$api.get(
+                  `/api/reddit-serial/${to.query.reddit}/`
+                )
+              ).data;
+              return { name: "new", replace: true };
+            }
           } else {
-            next("/login");
+            return `/login?next=${encodeURIComponent(to.fullPath)}`;
           }
         },
       },

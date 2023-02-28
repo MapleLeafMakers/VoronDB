@@ -6,7 +6,11 @@
       caption="Upload a photo, and fill out the form below to add your printer to the database."
     />
 
-    <PrinterForm v-if="coreStore.loaded" @saved="handleSaved" />
+    <PrinterForm
+      v-if="coreStore.loaded"
+      @saved="handleSaved"
+      :printer="coreStore.newPrinterPreset"
+    />
   </q-page>
 </template>
 
@@ -18,7 +22,6 @@ import { mapStores } from "pinia";
 export default {
   name: "NewPrinter",
   components: { PrinterForm },
-
   computed: {
     ...mapStores(useCoreStore),
   },
@@ -28,9 +31,7 @@ export default {
     },
   },
   data() {
-    return {
-      printer: {},
-    };
+    return {};
   },
 };
 </script>

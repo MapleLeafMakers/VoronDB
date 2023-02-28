@@ -421,7 +421,7 @@ export default {
     this.notes = this.printer?.notes || null;
 
     this.anonymous =
-      (this.printer && this.printer.submitted_by == null) || false;
+      (this.printer && this.printer.submitted_by === null) || false;
 
     if (this.thumbnail) {
       this.photoPlaceholder = new File([], this.thumbnail);
