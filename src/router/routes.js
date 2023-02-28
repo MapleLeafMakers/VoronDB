@@ -50,14 +50,23 @@ const routes = [
         async beforeEnter(to, from) {
           const coreStore = useCoreStore();
           const user = await loggedInUser(coreStore);
-          let printer = {};
+
           if (user) {
-            if (to.query.reddit) {
-              coreStore.newPrinterPreset = (
-                await coreStore.$api.get(
-                  `/api/reddit-serial/${to.query.reddit}/`
-                )
-              ).data;
+            if (Object.keys(to.query).length) {
+              let printer = {};
+              if (to.query.reddit) {
+                Object.assign(
+                  printer,
+                  (
+                    await coreStore.$api.get(
+                      `/api/reddit-serial/${to.query.reddit}/`
+                    )
+                  ).data
+                );
+              }
+              Object.assign(printer, to.query);
+              delete printer.reddit;
+              coreStore.newPrinterPreset = printer;
               return { name: "new", replace: true };
             }
           } else {
