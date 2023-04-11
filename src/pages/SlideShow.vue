@@ -23,6 +23,7 @@
 
       <template v-slot:control> </template>
     </q-carousel>
+    <q-spinner v-else color="primary" size="3em" />
   </q-page>
 </template>
 <style lang="scss">
