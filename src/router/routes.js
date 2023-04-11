@@ -33,6 +33,11 @@ const routes = [
         component: () => import("pages/AboutPage.vue"),
       },
       {
+        name: "slide-show",
+        path: "/slideshow",
+        component: () => import("pages/SlideShow.vue"),
+      },
+      {
         name: "contact-us",
         path: "/contact",
         component: () => import("pages/ContactForm.vue"),

@@ -257,6 +257,16 @@ export default {
         this.thumbnail = URL.createObjectURL(newVal);
       }
     },
+    photos: {
+      handler(newVal, oldVal) {
+        console.log("photos", newVal, this.photosError);
+        if (newVal?.length && this.photosError) {
+          console.log("Clearing photos error");
+          this.photosError = null;
+        }
+      },
+      deep: true,
+    },
     model: function (newVal, oldVal) {
       if (newVal) {
         this.family = this.coreStore.families.get(this.model.family_id);
@@ -405,16 +415,17 @@ export default {
   },
   mounted() {
     const cs = this.coreStore;
-    this.model = cs.models.get(this.printer?.printer_model) || null;
+    this.model = cs.models.get(parseInt(this.printer?.printer_model)) || null;
     this.thumbnail = this.printer?.photo || null;
     this.serial_number = this.printer?.serial_number || null;
     this.serial_request_link = this.printer?.serial_request_link || null;
     this.printer_name = this.printer?.printer_name || null;
-    this.frame_color = cs.frameColors.get(this.printer?.frame_color) || null;
+    this.frame_color =
+      cs.frameColors.get(parseInt(this.printer?.frame_color)) || null;
     this.primary_filament =
-      cs.filaments.get(this.printer?.primary_filament) || null;
+      cs.filaments.get(parseInt(this.printer?.primary_filament)) || null;
     this.accent_filament =
-      cs.filaments.get(this.printer?.accent_filament) || null;
+      cs.filaments.get(parseInt(this.printer?.accent_filament)) || null;
     this.photos = this.printer?.photos || [];
     this.mods = this.printer?.mods || [];
     this.vanity_url = this.printer?.vanity_url || null;
