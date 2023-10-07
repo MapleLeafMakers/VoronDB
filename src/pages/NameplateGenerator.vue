@@ -27,8 +27,8 @@
               class="q-mb-sm"
             />
 
-            <q-input v-model.number="panel_thickness" type="number" :min='2.5' :max='10' :step='0.5' label="Panel Thickness" filled suffix="mm" v-if="family !== 'V0'" />
-            <q-checkbox v-model="logo" color="dark" label="Include Voron Logo" class="q-mb-sm" />
+            <q-input v-model.number="panel_thickness" type="number" :min='0' :max='10' :step='0.5' label="Panel Thickness" filled suffix="mm" v-if="family !== 'V0'" hint="Including foam thickness" />
+            <q-checkbox v-model="logo" color="dark" label="Include Voron Logo" class="q-mb-sm"  />
             
             <div>
               <q-btn
