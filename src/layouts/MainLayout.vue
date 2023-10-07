@@ -147,6 +147,26 @@
               >
             </q-item-section>
           </q-item>
+          
+          <q-item
+            clickable
+            v-ripple
+            active-class="tab-active"
+            to="/nameplate-generator"
+            
+          >
+            <q-item-section avatar>
+              <q-icon name="badge" />
+            </q-item-section>
+
+            <q-item-section>
+              <q-item-label>Nameplate Generator</q-item-label>
+              <q-item-label caption
+                >Download a printable nameplate for your Voron </q-item-label
+              >
+            </q-item-section>
+          </q-item>
+          
           <q-item
             clickable
             v-ripple

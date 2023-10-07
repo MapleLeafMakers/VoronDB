@@ -15,13 +15,14 @@
 </template>
 
 <script>
+import PageHeader from "components/PageHeader.vue";
 import PrinterForm from "components/PrinterForm.vue";
 import { useCoreStore } from "stores/core";
 import { mapStores } from "pinia";
 
 export default {
   name: "NewPrinter",
-  components: { PrinterForm },
+  components: { PrinterForm, PageHeader },
   computed: {
     ...mapStores(useCoreStore),
   },

@@ -33,6 +33,11 @@ const routes = [
         component: () => import("pages/AboutPage.vue"),
       },
       {
+        name: "nameplate",
+        path: "/nameplate-generator",
+        component: () => import("pages/NameplateGenerator.vue")
+      },
+      {
         name: "slide-show",
         path: "/slideshow",
         component: () => import("pages/SlideShow.vue"),
