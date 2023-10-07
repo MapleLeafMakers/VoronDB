@@ -5,7 +5,7 @@
       swipeable
       animated
       arrows
-      :autoplay="30000"
+      :autoplay="interval"
       infinite
       transition-prev="scale"
       transition-next="scale"
@@ -23,7 +23,7 @@
 
       <template v-slot:control> </template>
     </q-carousel>
-    <q-spinner v-else color="primary" size="3em" />
+    <q-spinner style="margin: auto" v-else color="primary" size="3em" />
   </q-page>
 </template>
 <style lang="scss">
@@ -58,6 +58,7 @@ import { mapStores } from "pinia";
 export default {
   name: "SlideShow",
   async mounted() {
+    this.interval = parseInt(this.$route.query.interval) * 1000;
     this.coreStore.printerSearchParams = {};
     let page = 1;
     while (
@@ -87,7 +88,7 @@ export default {
     },
   },
   data() {
-    return { slide: 1, fullscreen: false, ready: false };
+    return { interval: 30000, slide: 1, fullscreen: false, ready: false };
   },
 };
 </script>
