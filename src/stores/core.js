@@ -124,7 +124,10 @@ export const useCoreStore = defineStore("core", {
         params: params,
       };
       const response = await this.$api.get("/api/printer/", opts);
-      response.data.results.forEach((r) => this.printerResults.push(r));
+      response.data.results.forEach((r) => {
+        //r.photos.sort((p1, p2) => p1.sort_order - p2.sort_order);
+        this.printerResults.push(r);
+      });
       this.printerResultCount = response.data.count;
     },
 

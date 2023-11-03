@@ -220,12 +220,12 @@ export default {
       return [
         {
           id: 1,
-          generate: () => this.printer_name,
+          generate: () => this.slugify(this.printer_name),
           check: () => this.printer_name,
         },
         {
           id: 2,
-          generate: () => `${this.family.short_name}-${this.serial_number}`,
+          generate: () => this.slugify(`${this.family.short_name}-${this.serial_number}`),
           check: () => this.serial_number,
         },
         {
@@ -295,7 +295,7 @@ export default {
       return true;
     },
     slugify(val) {
-      return val.replace(/[^-\p{L}]+/u, "-");
+      return val.replace(/[^-\p{L}\d]+/u, "-");
     },
     setFilamentValue(formData, key, fId) {
       if (typeof fId === "number") {
